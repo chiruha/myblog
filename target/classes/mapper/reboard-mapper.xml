@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reboard-mapper">
+    	<select id="ReList" resultType="ReboardDto" parameterType="hashmap">
+   			SELECT 	RE_NUM, 
+    				RE_WRITER,
+    				RE_TITLE,
+    				RE_CONTENT,
+    				RE_DATE,
+    				RE_HIT,
+    				RE_REF,
+    				RE_LEV,
+    				RE_STEP,
+    				RE_DEL
+			 FROM (
+	    		SELECT 	ROWNUM RNUM,
+	    				RE_NUM, 
+	    				RE_WRITER,
+	    				RE_TITLE,
+	    				RE_CONTENT,
+	    				RE_DATE,
+	    				RE_HIT,
+	    				RE_REF,
+	    				RE_LEV,
+	    				RE_STEP,
+	    				RE_DEL
+	    		FROM REPLY_BOARD 
+	    		WHERE RE_DEL='N'
+					<if test="type!=null and type!=''">
+					AND	${type} like '%' || #{keyword} || '%'
+					</if>
+				
+    		)
+    		<![CDATA[WHERE RNUM>=#{startRow} AND RNUM<=#{endRow}]]>
+    	</select>
+    
+    	<select id="getReCnt" resultType="int" parameterType="hashmap">
+    		SELECT COUNT(RE_NUM) FROM (
+    			SELECT 	RE_NUM, 
+	    				RE_WRITER,
+	    				RE_TITLE,
+	    				RE_CONTENT,
+	    				RE_DATE,
+	    				RE_HIT,
+	    				RE_REF,
+	    				RE_LEV,
+	    				RE_STEP,
+	    				RE_DEL
+	    		FROM REPLY_BOARD 
+		    	<where>
+					<if test="type!=null and type!=''">
+						${type} like '%' || #{keyword} || '%'
+					</if>
+				</where>
+    		)
+    	</select>
+    	
+    	<insert id="ReInsert" parameterType="ReboardDto">
+    		INSERT INTO REPLY_BOARD(
+    			RE_NUM, 
+   				RE_WRITER,
+   				RE_TITLE,
+   				RE_CONTENT,
+   				RE_DATE,
+   				RE_HIT,
+   				RE_REF,
+   				RE_LEV,
+   				RE_STEP,
+   				RE_DEL
+    		) VALUES(
+    			RE_SEQ.NEXTVAL,
+    			#{reWriter},
+    			#{reTitle},
+    			#{reContent},
+    			SYSDATE,
+    			#{reHit},
+    			#{reRef},
+    			#{reLev},
+    			#{reStep},
+    			#{reDel}
+    		)
+    	</insert>
+    	
+    	<update id="ReUpdate" parameterType="ReboardDto">
+    		UPDATE REPLY_BOARD SET(
+    			RE_WRITER	=#{reWriter},
+    			RE_TITLE	=#{reTitle},
+    			RE_CONTENT	=#{reContent},
+    			RE_DATE		=#{reDate},
+    			RE_HIT		=#{reHit},
+    			RE_REF		=#{reRef},
+    			RE_LEV		=#{reLev},
+    			RE_STEP		=#{reStep},
+    		) WHERE RE_NUM	=#{reNum},
+    	</update>
+    	
+    	<update id="ReDelete" parameterType="hashmap">
+    		UPDATE REPLY_BOARD SET(
+    			RE_DEL		=#{reDel}
+    		)	RE_NUM		=#{reNum}
+    	</update>
+    	
+    	<select id="ReDetail" parameterType="int" resultType="ReboardDto">
+    		SELECT 		RE_WRITER,
+	    				RE_TITLE,
+	    				RE_CONTENT,
+	    				RE_DATE,
+	    				RE_HIT,
+	    				RE_REF,
+	    				RE_LEV,
+	    				RE_STEP,
+	    				RE_DEL
+	    	FROM REPLY_BOARD 
+    		WHERE RE_NUM	=#{value}
+    	</select>
+    	
+    
+</mapper>

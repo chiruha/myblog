@@ -1,0 +1,349 @@
+@CHARSET "UTF-8";
+*{	margin: 0px;
+}
+#wrap{
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	background-color: #f1f1ef;
+}
+#headerDiv{
+	width: 100%;
+	background-color: rgb(162, 191, 234);
+	height: 100px;
+	text-indent: 10px;
+}
+#headerDiv a{
+	text-decoration: none;
+	color: white;
+}
+#contentDiv{
+	float:left;
+	width: 100%;
+	height: 500px;
+	margin: auto;
+	background-color: #da536c;
+	
+}
+#menuDiv{
+	float: left;
+	width: 20%;
+	background-color: hsla(114, 40%, 50%, 0.36);
+	position: relative;
+	text-indent: 10px;
+}
+#menuDiv a{
+	color: rgba(144, 85, 9, 0.85);	
+	text-decoration: none;
+	font-weight: bold;
+	
+}
+#menuDiv ul{
+	margin: 0px;
+	padding: 0px;
+}
+#menuDiv li{
+	list-style: none;
+	margin: 0px;
+	margin-top:2px;
+	padding: 0px;
+	background-color: rgba(237, 247, 84, 0.73);
+
+	
+}
+#menuDiv li:hover{
+	background-color:#0080ff;
+	
+}
+#menuDiv a:hover{
+	font-style: italic;
+	color: #fafafa;
+}
+#bodyDiv{
+	height:100%;
+	width: 78%;
+	float: right;
+	background-color: rgba(241, 202, 190, 0.84);
+	position: relative;
+	margin: 0px;
+}
+.text-center{
+	text-align: center;
+}
+#footerDiv{
+	margin-top:5px;
+	float: left;
+	width: 100%;
+	height: 100px;
+	background-color: rgba(41, 10, 115, 0.69);
+}
+.table{
+	width: 100%;
+	text-align: center;
+}
+.table, .table th, td{
+	border: 1px solid #804000;
+	text-align: center;
+	background-color: white;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    border: 1px solid white;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.button {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    float: right;
+}
+
+.button:hover {
+    background-color: #0080ff; 
+    color: white;
+}
+
+.form label{
+	float: left;
+}
+.form input{
+	float: right;
+}
+
+.paging{
+	text-decoration: none;
+}
+
+#pdiv{
+	text-align: center;
+}
+.outer{
+	width: 100%;
+}
+
+.inner{
+	width: 80%;
+	margin: 0 auto;
+}
+* a{
+	text-decoration: none;
+	color: #0080ff;
+	
+}
+/*	다음 순서대로 해야 css 적용이 잘된다
+	a:link		방문 전 링크 상태
+	a:visited	방문 후 링크 상태
+	a:hover		마우스 오버시 링크 상태
+	a:active	클릭시 링크 상태
+*/
+* a:hover{
+	font-weight: bold;
+	color: black;
+}
+* a:active{
+	font-style: italic;
+	color: gray;
+}
+/*   레이어 팝업 css   */
+.layer {
+	display: none;
+	position: fixed;
+	_position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+
+.layer .bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .5;
+	filter: alpha(opacity = 50);
+}
+
+.layer .pop-layer {
+	display: block;
+}
+
+.pop-layer {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 410px;
+	height: auto;
+	background-color: #fff;
+	border: 5px solid #3571B5;
+	z-index: 10;
+}
+
+.pop-layer .pop-container {
+	padding: 20px 25px;
+}
+
+.pop-layer p.ctxt {
+	color: #666;
+	line-height: 25px;
+}
+
+.pop-layer .btn-r {
+	width: 100%;
+	margin: 5px 0 0px;
+	padding-top: 5px;
+	border-top: 1px solid #DDD;
+	text-align: right;
+}
+
+.cbtn {
+	display: inline-block;
+	height: 25px;
+	padding: 0 14px 0;
+	border: 1px solid #304a8a;
+	background-color: #3f5a9d;
+	font-size: 13px;
+	color: #fff;
+	line-height: 25px;
+}
+
+.cbtn:hover {
+	border: 1px solid #091940;
+	background-color: #1f326a;
+	color: #fff;
+}
+
+/*
+	css-only-tooltip version 1.0.0
+	ⓒ 2015 AHN JAE-HA http://github.com/eu81273
+	MIT License
+*/
+[data-tooltip-text]:hover {
+	position: relative;
+}
+
+[data-tooltip-text]:hover:after {
+	background-color: #000000;
+	background-color: rgba(0, 0, 0, 0.8);
+
+	-webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+	-moz-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+	box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	color: #FFFFFF;
+	font-size: 12px;
+	content: attr(data-tooltip-text);
+
+  margin-bottom: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	padding: 7px 12px;
+	position: absolute;
+	min-width: 50px;
+	max-width: 300px;
+	word-wrap: break-word;
+
+	z-index: 9999;
+}
+
+
+
+/*  클래스로 툴팁 css 주기  */
+.tooltip01{
+    display: inline;
+    position: relative;
+}
+.tooltip01:hover:after{
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 220px;
+}
+.tooltip01:hover:before{
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+}
+
+/* w3schools css */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.inputmsg{
+	float: right;
+	color: gray;
+	font-size: 0.7em;
+	
+}

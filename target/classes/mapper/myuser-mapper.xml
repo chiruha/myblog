@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myuser-mapper">
+    	<select id="MuList" resultType="MyuserDto" parameterType="hashmap">
+    		SELECT	MU_NUM, 
+	   				MU_ID, 
+	   				MU_PWD, 
+	   				MU_NAME, 
+	   				MU_PHONE, 
+	   				MU_DEL
+    		 FROM (
+	    		SELECT 	ROWNUM RNUM, 
+	    				MU_NUM, 
+	    				MU_ID, 
+	    				MU_PWD, 
+	    				MU_NAME, 
+	    				MU_PHONE, 
+	    				MU_DEL
+	    		FROM MYUSER
+	    	<where>
+				<if test="type!=null and type!=''">
+					${type} like '%' || #{keyword} || '%'
+				</if>
+			</where>
+    		)
+    		<![CDATA[WHERE RNUM>=#{startRow} AND RNUM<=#{endRow}]]>
+    	</select>
+    	
+    	<select id="getMuCnt" resultType="int" parameterType="hashmap">
+    		SELECT COUNT(MU_NUM) FROM (
+	    		SELECT 	MU_NUM, 
+	    				MU_ID, 
+	    				MU_PWD, 
+	    				MU_NAME, 
+	    				MU_PHONE, 
+	    				MU_DEL
+	    		FROM MYUSER
+	    	<where>
+				<if test="type!=null and type!=''">
+					${type} like '%' || #{keyword} || '%'
+				</if>
+			</where>
+    		)
+    	</select>
+    
+    	<insert id="MuInsert" parameterType="MyuserDto">
+    		INSERT INTO MYUSER(
+    			MU_NUM,
+    			MU_ID,
+    			MU_PWD,
+    			MU_NAME,
+    			MU_PHONE,
+    			MU_DEL
+    		) VALUES(
+    			MU_SEQ.NEXTVAL,
+    			#{muId},
+    			#{muPwd},
+    			#{muName},
+    			#{muPhone},
+    			#{muDel}
+    		)
+    	</insert>
+    	
+    	<update id="MuUpdate" parameterType="com.myblog.dto.MyuserDto">
+    		UPDATE MYUSER SET(
+    			MU_ID		=#{muId},
+    			MU_PWD		=#{muPwd},
+    			MU_NAME		=#{muName},
+    			MU_PHONE	=#{muPhone}
+    		) WHERE MU_NUM	=#{muNum}
+    	</update>
+    	
+    	<update id="MuDelete" parameterType="hashmap">
+    		UPDATE MYUSER SET(
+    			MU_DEL		=#{muDel}
+    		) WHERE MU_NUM	=#{muNum}
+    	</update>
+    	
+    	<select id="MuDetail" resultType="com.myblog.dto.MyuserDto" parameterType="int" >
+    		SELECT 		MU_NUM, 
+	    				MU_ID, 
+	    				MU_PWD, 
+	    				MU_NAME, 
+	    				MU_PHONE, 
+	    				MU_DEL
+	    	FROM MYUSER
+	    	WHERE MU_NUM	=#{value}	 
+    	</select>
+    
+    	<select id="MuLogin" resultType="MyuserDto">
+    		SELECT 	MU_NUM,
+    				MU_ID
+    		FROM MYUSER
+    		WHERE MU_ID	=#{muId} AND MU_PWD	=#{muPwd} 
+    	</select>
+    	
+    	
+</mapper>

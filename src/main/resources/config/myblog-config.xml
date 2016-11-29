@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <configuration>
+ 	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+ 
+ 	<typeAliases>
+ 		<typeAlias type="com.myblog.dto.MyuserDto" alias="MyuserDto"/>
+ 		<typeAlias type="com.myblog.dto.ReboardDto" alias="ReboardDto"/>
+ 	</typeAliases>
+	
+	<!-- mapper 의 중복 생성을 피해야 작동함 
+	(root-context 의<property name="mapperLocations" value="classpath*:mapper/*-mapper.xml"/>)
+	-->
+	<!-- 여기서 각각 mapper 를 선언했을 경우 mapper 파일의 namespace 는
+	(mapper 이름).xml 의 (mapper 이름)으로 사용가능-->
+			<mappers>
+				<mapper resource="/mapper/myuser-mapper.xml"/>
+				<mapper resource="/mapper/reboard-mapper.xml"/>
+			</mappers> 
+	
+ </configuration>
