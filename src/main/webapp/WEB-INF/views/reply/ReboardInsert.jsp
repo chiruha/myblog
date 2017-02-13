@@ -14,11 +14,11 @@
  <div class="col-7">
 <form action="Reinsert.do" class="form">
 <label>글쓴이</label>
-<input type="text" value="" name="reWriter"> <br>
+<input type="text" value="" name="reWriter" class="widthFull"> <br>
 <label>글제목</label>
-<input type="text" value="" name="reTitle"> <br>
+<input type="text" value="" name="reTitle" class="widthFull"> <br>
 <label>글내용</label><br>
-<textarea rows="10" cols="50" name="reContent"></textarea><br><br>
+<textarea rows="10" name="reContent" class="widthFull"></textarea><br><br>
 <input type="submit" value="write" class="button">
 <input type="reset" value="reset" class="button">
 </form>

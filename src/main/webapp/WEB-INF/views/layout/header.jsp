@@ -7,5 +7,5 @@
      <h1>header</h1>
      
      <c:if test="${not empty sessionScope.logininfo}">
-     	<h4><a href="<c:url value='mudetail.do/?muNum=${logininfo.muNum }' />">${logininfo.muId}</a> 님 환영합니다</h4>
+     	<h4><a href="<c:url value='/mudetail.do/?muNum=${logininfo.muNum }' />"  onClick="alert('준비중입니다.'); return false;">${logininfo.muId}</a> 님 환영합니다</h4>
      </c:if>  

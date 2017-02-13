@@ -9,7 +9,7 @@
 }
 #headerDiv{
 	width: 100%;
-	background-color: rgb(162, 191, 234);
+	background: linear-gradient( to bottom, rgba(0, 31, 255, 0.67), rgb(6, 4, 41) );
 	height: 100px;
 	text-indent: 10px;
 }
@@ -22,7 +22,7 @@
 	width: 100%;
 	height: 500px;
 	margin: auto;
-	background-color: #da536c;
+	background-color: #374f92;
 	
 }
 #menuDiv{
@@ -63,7 +63,7 @@
 	height:100%;
 	width: 78%;
 	float: right;
-	background-color: rgba(241, 202, 190, 0.84);
+	background-color: rgba(187, 234, 195, 0.74);
 	position: relative;
 	margin: 0px;
 }
@@ -75,8 +75,9 @@
 	float: left;
 	width: 100%;
 	height: 100px;
-	background-color: rgba(41, 10, 115, 0.69);
+	 background: linear-gradient( 45deg, rgba(8, 12, 140, 0.96), rgba(4, 255, 0, 0.66) ); 
 }
+
 .table{
 	width: 100%;
 	text-align: center;
@@ -346,4 +347,9 @@
 	color: gray;
 	font-size: 0.7em;
 	
+}
+.widthFull{
+	width:100%;
+	border:1;
+	overflow:visible;
 }

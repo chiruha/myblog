@@ -27,13 +27,13 @@ public class MyuserController {
 	@Autowired private MyuserService muservice;
 	
 	// 로그인 페이지 이동
-	@RequestMapping(value="login.do",method=RequestMethod.GET)
+	@RequestMapping(value="/login.do",method=RequestMethod.GET)
 	public String login(){
 		return ".myuser.MyuserLogin";
 	}
 	
 	// 로그인 확인
-	@RequestMapping(value="logincheck.do")
+	@RequestMapping(value="/logincheck.do")
 	public String logincheck(
 			@RequestParam(value="muId",defaultValue="nodata") String muId,
 			@RequestParam(value="muPwd",defaultValue="nodata") String muPwd,
@@ -59,7 +59,7 @@ public class MyuserController {
 			return ".myuser.MyuserLogin";
 		}
 	}
-	@RequestMapping(value="logout.do")
+	@RequestMapping(value="/logout.do")
 	public String MuLogout(HttpSession session){
 		session.invalidate();
 		return ".main";
