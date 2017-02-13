@@ -14,24 +14,11 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	
-	<repositories>
-		<repository>
-		<id>oracle</id>
-		<name>ORACLE JDBC Repository</name> 
-		<url>http://maven.jahia.org/maven2</url>
-		</repository>
-	</repositories>
 	
 	
 	<dependencies>
 	
-		<!-- ///////////   ORACLE   //////////// -->
-			<!-- oracle -->
-			<dependency>
-				<groupId>com.oracle</groupId>
-				<artifactId>ojdbc6</artifactId>
-				<version>11.1.0.7.0</version>
-			</dependency>
+	
 		
 		<!--//////// ToStringBuilder 사용하기 위한 모듈  ////////-->
 			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
